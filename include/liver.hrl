@@ -44,7 +44,10 @@
     to_uc                       => liver_livr_rules,
     remove                      => liver_livr_rules,
     leave_only                  => liver_livr_rules,
-    default                     => liver_livr_rules
+    default                     => liver_livr_rules,
+
+    %% bool rules
+    bool                        => liver_livr_rules
 }).
 
 -define(DEFAULT_ERRORS, #{
@@ -66,5 +69,6 @@
     wrong_email             => <<"WRONG_EMAIL">>,
     wrong_url               => <<"WRONG_URL">>,
     fields_not_equal        => <<"FIELDS_NOT_EQUAL">>,
-    unknown_field           => <<"UNKNOWN_FIELD">>
+    unknown_field           => <<"UNKNOWN_FIELD">>,
+    not_bool                => <<"NOT_BOOL">>
 }).

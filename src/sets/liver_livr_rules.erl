@@ -48,6 +48,9 @@
 -export([leave_only/3]).
 -export([default/3]).
 
+%% bools
+-export([bool/3]).
+
 
 %% API
 %% common rules
@@ -588,6 +591,13 @@ default(Default, null, _Opts) ->
     {ok, Default};
 default(_Default, Value, _Opts) ->
     {ok, Value}.
+
+bool(_Args, Value, _Opts) when is_boolean(Value) ->
+    {ok, Value};
+bool(_Args, Value, _Opts) when Value == <<"true">>; Value == <<"false">> ->
+    {ok, Value};
+bool(_Args, _Value, _Opts) ->
+    {error, not_bool}.
 
 %% internal
 is_proplist([{_, _}|T]) ->
